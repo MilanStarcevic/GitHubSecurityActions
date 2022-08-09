@@ -1,6 +1,5 @@
 name: cicd_poc
 description: A Flutter playground project to demonstrate CI/CD on a pipe pipeline.
-s
 publish_to: 'none'
 
 version: 1.2s.0+1
