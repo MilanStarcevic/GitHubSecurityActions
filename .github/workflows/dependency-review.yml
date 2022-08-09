@@ -24,8 +24,12 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.2'
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v2
         with:
            fail-on-severity: low
            deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
+s
