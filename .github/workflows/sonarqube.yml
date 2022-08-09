@@ -1,0 +1,29 @@
+name: SonarQube analysis
+on:
+   push:
+     branches:
+       - master
+   pull_request:
+     types: [opened, synchronize, reopened]
+jobs:
+  build:
+     name: SonarQube analysis
+     runs-on: ubuntu-latest
+     defaults:
+      run:
+        working-directory: ./cicd_poc/
+     steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.2'
+      - name: Scan code
+        run: |
+         wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+         unzip sonar-scanner-cli-4.7.0.2747-linux.zip
+         ./sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner \
+            -Dsonar.host.url="${{ format('http://{0}:9000', secrets.SONAR_HOST) }}" \
+            -Dsonar.login="${{ secrets.SONAR_TOKEN }}" \
+            -Dsonar.sources=lib \
+            -Dsonar.tests=test \
+            -Dsonar.projectKey=CICDTest

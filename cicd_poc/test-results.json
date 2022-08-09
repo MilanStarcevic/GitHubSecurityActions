@@ -1,0 +1,28 @@
+{"protocolVersion":"0.1.1","runnerVersion":"1.21.1","pid":38336,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"/Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading /Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":2}
+{"count":1,"time":10,"type":"allSuites"}
+
+[{"event":"test.startedProcess","params":{"observatoryUri":null}}]
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":2644}
+{"group":{"id":2,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":8,"line":null,"column":null,"url":null},"type":"group","time":2648}
+{"group":{"id":3,"suiteID":0,"parentID":2,"name":"creating repo","metadata":{"skip":false,"skipReason":null},"testCount":2,"line":6,"column":3,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"group","time":2649}
+{"test":{"id":4,"name":"creating repo when initialize repo then no exception","suiteID":0,"groupIDs":[2,3],"metadata":{"skip":false,"skipReason":null},"line":7,"column":5,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"testStart","time":2649}
+{"testID":4,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2676}
+{"test":{"id":5,"name":"creating repo given new repo instance when get all todos then return empty list of todos","suiteID":0,"groupIDs":[2,3],"metadata":{"skip":false,"skipReason":null},"line":10,"column":5,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"testStart","time":2676}
+{"testID":5,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2681}
+{"group":{"id":6,"suiteID":0,"parentID":2,"name":"adding todos","metadata":{"skip":false,"skipReason":null},"testCount":2,"line":19,"column":3,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"group","time":2682}
+{"test":{"id":7,"name":"adding todos when adding todo then get all todos returns that todo","suiteID":0,"groupIDs":[2,6],"metadata":{"skip":false,"skipReason":null},"line":20,"column":5,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"testStart","time":2682}
+{"testID":7,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2685}
+{"test":{"id":8,"name":"adding todos when adding multiple todos then get all todos returns all todos","suiteID":0,"groupIDs":[2,6],"metadata":{"skip":false,"skipReason":null},"line":28,"column":5,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"testStart","time":2686}
+{"testID":8,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2688}
+{"group":{"id":9,"suiteID":0,"parentID":2,"name":"removing todos","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":38,"column":3,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"group","time":2689}
+{"test":{"id":10,"name":"removing todos given repo with one todo when removing this todo then get all todos returns empty list","suiteID":0,"groupIDs":[2,9],"metadata":{"skip":false,"skipReason":null},"line":39,"column":5,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"testStart","time":2689}
+{"testID":10,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2691}
+{"test":{"id":11,"name":"removing todos given repo with multiple todos when removing one todo then get all todos returns all todos except removed one","suiteID":0,"groupIDs":[2,9],"metadata":{"skip":false,"skipReason":null},"line":51,"column":5,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"testStart","time":2692}
+{"testID":11,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2695}
+{"test":{"id":12,"name":"removing todos given repo with multiple todos when removing one todo twice then get all todos returns all todos except removed one","suiteID":0,"groupIDs":[2,9],"metadata":{"skip":false,"skipReason":null},"line":63,"column":5,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"testStart","time":2696}
+{"testID":12,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2698}
+{"test":{"id":13,"name":"removing todos given repo with todo when removing non-existing todo then nothing changes","suiteID":0,"groupIDs":[2,9],"metadata":{"skip":false,"skipReason":null},"line":76,"column":5,"url":"file:///Users/oge/Projects/Belimo/belas_alpha_poc/cicd_poc/test/data/todo_repo_test.dart"},"type":"testStart","time":2698}
+{"testID":13,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2701}
+{"success":true,"type":"done","time":2725}

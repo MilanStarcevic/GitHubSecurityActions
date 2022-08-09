@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite errors="0" failures="0" tests="8" skipped="0" name=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" timestamp="2022-08-08T09:53:52">
+    <properties>
+      <property name="platform" value="vm"/>
+    </properties>
+    <testcase classname=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" name="creating repo when initialize repo then no exception" time="0.027"/>
+    <testcase classname=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" name="creating repo given new repo instance when get all todos then return empty list of todos" time="0.005"/>
+    <testcase classname=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" name="adding todos when adding todo then get all todos returns that todo" time="0.003"/>
+    <testcase classname=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" name="adding todos when adding multiple todos then get all todos returns all todos" time="0.002"/>
+    <testcase classname=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" name="removing todos given repo with one todo when removing this todo then get all todos returns empty list" time="0.002"/>
+    <testcase classname=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" name="removing todos given repo with multiple todos when removing one todo then get all todos returns all todos except removed one" time="0.003"/>
+    <testcase classname=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" name="removing todos given repo with multiple todos when removing one todo twice then get all todos returns all todos except removed one" time="0.002"/>
+    <testcase classname=".Users.oge.Projects.Belimo.belas_alpha_poc.cicd_poc.test.data.todo_repo" name="removing todos given repo with todo when removing non-existing todo then nothing changes" time="0.003"/>
+  </testsuite>
+</testsuites>
