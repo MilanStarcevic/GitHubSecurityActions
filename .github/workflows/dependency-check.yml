@@ -23,8 +23,8 @@ jobs:
         working-directory: ./cicd_poc/
     steps:
       - name: Check licenses install 
-      run: | 
-        dart pub global activate license_checker_for_github_action 
+        run: | 
+          dart pub global activate license_checker_for_github_action 
       - name: Check licenses
-      run: | 
-        dart_license_checker --show-transitive-dependencies --fail-on-copyleft
+        run: | 
+          dart_license_checker --show-transitive-dependencies --fail-on-copyleft
