@@ -14,14 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-          uses: actions/checkout@v3
+        uses: actions/checkout@v3
+  # Tool: https://pub.dev/packages/license_checker_for_github_action
+  # Checks licenses of the Pub package manager
   dart-license-check:
     needs: checkout-repo
     runs-on: ubuntu-latest
     env:
       PROJECT_DIRECTORY: ./cicd_poc
     steps:
-      - name: Install Flutter SDK
+      - name: Install Flutter SDK # Required to generate package_config.json
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.0.2'
@@ -34,7 +36,9 @@ jobs:
       - name: Run Dart license checker
         working-directory: ${{ env.PROJECT_DIRECTORY }}
         run: | 
-          dart_license_checker --show-transitive-dependencies --fail-on-copyleft
+          dart_license_checker --show-transitive-dependencies --fail-on-copyleft # Fails on any copyleft dependency in the tree
+    # Tool: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
+    # Checks vulnerabilities & licenses of all other package managers (Pub not supported)
     github-dependency-review:
       needs: checkout-repo
       runs-on: ubuntu-latest
