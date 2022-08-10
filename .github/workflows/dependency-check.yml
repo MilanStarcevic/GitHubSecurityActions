@@ -12,11 +12,15 @@ permissions:
 jobs:
   dependency-check:
     runs-on: ubuntu-latest
+        defaults:
+      run:
+        working-directory: /cicd_poc
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1.3
-      - name: Check licenses install 
+      - name: 'Install Dart SDK'
+        uses: dart-lang/setup-dart@v1.3
+      - name: Check licenses installszzzzz
         run: | 
           dart pub global activate license_checker_for_github_action 
       - name: Check licenses
