@@ -37,14 +37,14 @@ jobs:
         working-directory: ${{ env.PROJECT_DIRECTORY }}
         run: | 
           dart_license_checker --show-transitive-dependencies --fail-on-copyleft # Fails on any copyleft dependency in the tree
-    # Tool: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
-    # Checks vulnerabilities & licenses of all other package managers (Pub not supported)
-    github-dependency-review:
-      needs: checkout-repo
-      runs-on: ubuntu-latest
-      - name: Run GitHub dependency review (vulnerabilities & licenses)
-        uses: actions/dependency-review-action@v2
-        with:
-           fail-on-severity: low
-           deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
+  # Tool: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain
+  # Checks vulnerabilities & licenses of all other package managers (Pub not supported)
+  github-dependency-review:
+    needs: checkout-repo
+    runs-on: ubuntu-latest
+    - name: Run GitHub dependency review (vulnerabilities & licenses)
+      uses: actions/dependency-review-action@v2
+      with:
+          fail-on-severity: low
+          deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
 
