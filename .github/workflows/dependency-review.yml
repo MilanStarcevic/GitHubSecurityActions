@@ -21,7 +21,7 @@ jobs:
     needs: checkout-repo
     runs-on: ubuntu-latest
     env:
-      PROJECT_DIRECTORY: ./cicd_poc
+      PROJECT_DIRECTORY: /cicd_poc/
     steps:
       - name: Install Flutter SDK # Required to generate package_config.json
         uses: subosito/flutter-action@v2
