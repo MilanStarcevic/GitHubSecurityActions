@@ -12,6 +12,8 @@ permissions:
 jobs:
   dependency-check:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_DIRECTORY: ./cicd_poc
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
@@ -23,9 +25,10 @@ jobs:
         run: | 
           dart pub global activate license_checker_for_github_action 
       - name: 'Install project dependencies'
+        working-directory: env.PROJECT_DIRECTORY
         run: flutter pub get
       - name: Run Dart license checker
-        working-directory: ./cicd_poc
+        working-directory: env.PROJECT_DIRECTORY
         run: | 
           dart_license_checker --show-transitive-dependencies --fail-on-copyleft
       - name: 'Run GitHub dependency review (vulnerabilities & licenses)'
