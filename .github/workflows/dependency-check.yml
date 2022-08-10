@@ -12,9 +12,6 @@ permissions:
 jobs:
   dependency-check:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./cicd_poc/
     steps:
       - name: Check licenses install 
         run: | 
