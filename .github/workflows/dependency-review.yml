@@ -42,9 +42,10 @@ jobs:
   github-dependency-review:
     needs: checkout-repo
     runs-on: ubuntu-latest
-    - name: Run GitHub dependency review (vulnerabilities & licenses)
-      uses: actions/dependency-review-action@v2
-      with:
-          fail-on-severity: low
-          deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
+    steps:
+      - name: Run GitHub dependency review (vulnerabilities & licenses)
+        uses: actions/dependency-review-action@v2
+        with:
+            fail-on-severity: low
+            deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
 
