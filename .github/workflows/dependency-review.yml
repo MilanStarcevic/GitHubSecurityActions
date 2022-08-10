@@ -18,9 +18,6 @@ permissions:
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./cicd_poc/
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3

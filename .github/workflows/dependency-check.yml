@@ -12,7 +12,7 @@ permissions:
 jobs:
   dependency-check:
     runs-on: ubuntu-latest
-        defaults:
+    defaults:
       run:
         working-directory: /cicd_poc
     steps:
@@ -20,9 +20,15 @@ jobs:
         uses: actions/checkout@v3
       - name: 'Install Dart SDK'
         uses: dart-lang/setup-dart@v1.3
-      - name: Check licenses installs
+      - name: Install Dart license checker
         run: | 
           dart pub global activate license_checker_for_github_action 
-      - name: Check licenses
+      - name: Run Dart license checker
         run: | 
           dart_license_checker --show-transitive-dependencies --fail-on-copyleft
+      - name: 'Run GitHub dependency review (vulnerabilities & licenses)'
+        uses: actions/dependency-review-action@v2
+        with:
+           fail-on-severity: low
+           deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
+
