@@ -15,7 +15,7 @@ jobs:
   dart-license-check:
     runs-on: ubuntu-latest
     env:
-      PROJECT_DIRECTORY: ./cicd_poc
+      PROJECT_DIRECTORY: ./cicd_poc # Change this to the Pub package manager directory
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3

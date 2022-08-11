@@ -3,6 +3,6 @@
 version: 2
 updates:
   - package-ecosystem: "pub" # See documentation for possible values
-    directory: "/cicd_poc/" # Location of package manifests
+    directory: "/cicd_poc/" # Change this to the Pub package manager directory
     schedule:
       interval: "weekly"
