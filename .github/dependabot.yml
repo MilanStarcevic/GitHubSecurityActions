@@ -5,4 +5,4 @@ updates:
   - package-ecosystem: "pub" # See documentation for possible values
     directory: "/cicd_poc/" # Change this to the Pub package manager directory
     schedule:
-      interval: "weekly"
+      interval: "daily"
