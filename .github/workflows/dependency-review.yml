@@ -21,20 +21,20 @@ jobs:
     needs: checkout-repo
     runs-on: ubuntu-latest
     env:
-      PROJECT_DIRECTORY: /cicd_poc/
+      PROJECT_DIRECTORY: cicd_poc
     steps:
       - name: Install Flutter SDK # Required to generate package_config.json
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.0.2'
       - name: Install project dependencies
-        working-directory: ${{ env.PROJECT_DIRECTORY }}
+        working-directory:  ${{ env.PROJECT_DIRECTORY }}
         run: flutter pub get
       - name: Install Dart license checker
         run: | 
           dart pub global activate license_checker_for_github_action
       - name: Run Dart license checker
-        working-directory: ${{ env.PROJECT_DIRECTORY }}
+        working-directory: ./${{ env.PROJECT_DIRECTORY }}
         run: | 
           dart_license_checker --show-transitive-dependencies --fail-on-copyleft # Fails on any copyleft dependency in the tree
   # Tool: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain
