@@ -1,9 +1,3 @@
-# Dependency Review Action
-#
-# This Action will scan dependency manifest files that change as part of a Pull Request, surfacing known-vulnerable versions of the packages declared or updated in the PR. Once installed, if the workflow run is marked as required, PRs introducing known-vulnerable packages will be blocked from merging.
-#
-# Source repository: https://github.com/actions/dependency-review-action
-# Public documentation: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
 name: 'Dependency Review'
 on:
    push:
@@ -16,14 +10,40 @@ permissions:
   contents: read
 
 jobs:
-  dependency-review:
+  # Tool: https://pub.dev/packages/license_checker_for_github_action
+  # Checks licenses of the Pub package manager
+  dart-license-check:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_DIRECTORY: ./cicd_poc # Change this to the Pub package manager directory
     steps:
-      - name: 'Checkout Repository'
+      - name: Checkout Repository
         uses: actions/checkout@v3
-      - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v2
+      - name: Install Flutter SDK # Required to generate package_config.json
+        uses: subosito/flutter-action@v2
         with:
-           fail-on-severity: low
-           deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
-           
+          flutter-version: '3.0.2'
+      - name: Install project dependencies
+        working-directory:  ${{ env.PROJECT_DIRECTORY }}
+        run: flutter pub get
+      - name: Install Dart license checker
+        run: | 
+          dart pub global activate license_checker_for_github_action
+      - name: Run Dart license checker # Fails when it finds copy left license dependency
+        working-directory: ${{ env.PROJECT_DIRECTORY }}
+        run: | 
+          dart_license_checker --show-transitive-dependencies --fail-on-copyleft
+
+  # Tool: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain
+  # Checks vulnerabilities & licenses of all other package managers (Pub not supported: https://github.com/dart-lang/pub-dev/issues/2160)
+  # ** Only needed if there are package managers that are not Pub **
+  # github-dependency-review:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v3
+  #     - name: Run GitHub dependency review (vulnerabilities & licenses)
+  #       uses: actions/dependency-review-action@v2
+  #       with:
+  #           fail-on-severity: low
+  #           deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
