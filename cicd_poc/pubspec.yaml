@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dotup_dart_geolocation_core: 0.1.3
 
 dev_dependencies:
   test: ^1.21.1

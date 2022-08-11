@@ -33,8 +33,10 @@ jobs:
         working-directory: ${{ env.PROJECT_DIRECTORY }}
         run: | 
           dart_license_checker --show-transitive-dependencies --fail-on-copyleft
+
   # Tool: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain
-  # Checks vulnerabilities & licenses of all other package managers (Pub not supported)
+  # Checks vulnerabilities & licenses of all other package managers (Pub not supported: https://github.com/dart-lang/pub-dev/issues/2160)
+  # ** Only needed if there are package managers that are not Pub **
   github-dependency-review:
     runs-on: ubuntu-latest
     steps:
@@ -45,4 +47,3 @@ jobs:
         with:
             fail-on-severity: low
             deny-licenses: AGPL-3.0, EPL-2.0, GPL-2.0, GPL-3.0, LGPL-2.1, MPL-2.0
-
